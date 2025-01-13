@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+#include <vector>
 #include "CircleDetection/include/CircleDetector.hpp"
 #include "ColorMaskProcessor/include/ColorMaskProcessor.hpp"
 
@@ -112,6 +113,17 @@ int main() {
         // 检测黑色圆
         std::vector<cv::Vec3f> blackCircles = detector.detectCircles(frame, blackMask);
         drawCircles(frame, blackCircles, cv::Scalar(0, 0, 0));
+
+        /* // 直接检测圆
+        cv::Mat gray;
+        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+
+        std::vector<cv::Vec3f> allCircles;
+        cv::HoughCircles(gray, allCircles, cv::HOUGH_GRADIENT, 1,
+                         gray.rows / 8, // 圆心之间的最小距离
+                         100, 30,       // canny edge和accumulator阈值
+                         10, 80);       // 圆半径范围
+        drawCircles(frame, allCircles, cv::Scalar(0, 255, 0)); */
 
         // 计算帧率
         frameCount++;

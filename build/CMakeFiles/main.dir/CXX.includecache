@@ -19,6 +19,8 @@ opencv2/opencv.hpp
 /home/patience/Doc/Code/ZNJY_v2/main.cpp
 opencv2/opencv.hpp
 -
+vector
+-
 CircleDetection/include/CircleDetector.hpp
 /home/patience/Doc/Code/ZNJY_v2/CircleDetection/include/CircleDetector.hpp
 ColorMaskProcessor/include/ColorMaskProcessor.hpp
