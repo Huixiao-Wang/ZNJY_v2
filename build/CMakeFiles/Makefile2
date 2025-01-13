@@ -55,17 +55,20 @@ CMAKE_BINARY_DIR = /home/patience/Doc/Code/ZNJY_v2/build
 # The main recursive "all" target.
 all: CMakeFiles/main.dir/all
 all: CircleDetection/all
+all: ColorMaskProcessor/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: CircleDetection/preinstall
+preinstall: ColorMaskProcessor/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/main.dir/clean
 clean: CircleDetection/clean
+clean: ColorMaskProcessor/clean
 
 .PHONY : clean
 
@@ -88,18 +91,37 @@ CircleDetection/clean: CircleDetection/CMakeFiles/CircleDetection.dir/clean
 .PHONY : CircleDetection/clean
 
 #=============================================================================
+# Directory level rules for directory ColorMaskProcessor
+
+# Recursive "all" directory target.
+ColorMaskProcessor/all: ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/all
+
+.PHONY : ColorMaskProcessor/all
+
+# Recursive "preinstall" directory target.
+ColorMaskProcessor/preinstall:
+
+.PHONY : ColorMaskProcessor/preinstall
+
+# Recursive "clean" directory target.
+ColorMaskProcessor/clean: ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/clean
+
+.PHONY : ColorMaskProcessor/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
 CMakeFiles/main.dir/all: CircleDetection/CMakeFiles/CircleDetection.dir/all
+CMakeFiles/main.dir/all: ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/all
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=3,4 "Built target main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=5,6 "Built target main"
 .PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 0
 .PHONY : CMakeFiles/main.dir/rule
@@ -140,6 +162,33 @@ CircleDetection: CircleDetection/CMakeFiles/CircleDetection.dir/rule
 CircleDetection/CMakeFiles/CircleDetection.dir/clean:
 	$(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/clean
 .PHONY : CircleDetection/CMakeFiles/CircleDetection.dir/clean
+
+#=============================================================================
+# Target rules for target ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir
+
+# All Build rule for target.
+ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/all:
+	$(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/depend
+	$(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=3,4 "Built target ColorMaskProcessor"
+.PHONY : ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/all
+
+# Build rule for subdir invocation for target.
+ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 0
+.PHONY : ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule
+
+# Convenience name for target.
+ColorMaskProcessor: ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule
+
+.PHONY : ColorMaskProcessor
+
+# clean rule for target.
+ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/clean:
+	$(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/clean
+.PHONY : ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

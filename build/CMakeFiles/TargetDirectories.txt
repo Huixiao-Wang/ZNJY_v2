@@ -4,3 +4,6 @@
 /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/rebuild_cache.dir
 /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/edit_cache.dir
 /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/CircleDetection.dir
+/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/rebuild_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/edit_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir

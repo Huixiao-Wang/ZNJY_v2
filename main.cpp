@@ -1,8 +1,22 @@
 #include <opencv2/opencv.hpp>
 #include "CircleDetection/include/CircleDetector.hpp"
+#include "ColorMaskProcessor/include/ColorMaskProcessor.hpp"
 
 #define FRAME_WIDTH 640
 #define FRAME_HEIGHT 480
+#define MIN_CONTOUR_AREA 100
+
+// 定义你想要检测的颜色范围 (HSV)
+cv::Scalar LOWER_RED1 = cv::Scalar(0, 120, 70);    // 红色低阈值
+cv::Scalar UPPER_RED1 = cv::Scalar(10, 255, 255);   // 红色高阈值
+cv::Scalar LOWER_RED2 = cv::Scalar(170, 120, 70);   // 红色低阈值（第二段）
+cv::Scalar UPPER_RED2 = cv::Scalar(180, 255, 255);  // 红色高阈值（第二段）
+
+cv::Scalar LOWER_BLUE = cv::Scalar(100, 50, 50);    // 蓝色低阈值
+cv::Scalar UPPER_BLUE = cv::Scalar(140, 255, 255);  // 蓝色高阈值
+
+cv::Scalar LOWER_BLACK = cv::Scalar(0, 0, 0); // 黑色低阈值
+cv::Scalar UPPER_BLACK = cv::Scalar(180, 255, 50); // 黑色高阈值
 
 void drawCircles(cv::Mat& image, const std::vector<cv::Vec3f>& circles, const cv::Scalar& color) {
     for (const auto& circle : circles) {
@@ -20,13 +34,6 @@ void drawCircles(cv::Mat& image, const std::vector<cv::Vec3f>& circles, const cv
     }
 }
 
-cv::Mat extractColorMask(const cv::Mat& image, const cv::Scalar& lowerBound, const cv::Scalar& upperBound) {
-    cv::Mat hsv, mask;
-    cv::cvtColor(image, hsv, cv::COLOR_BGR2HSV);
-    cv::inRange(hsv, lowerBound, upperBound, mask);
-    return mask;
-}
-
 int main() {
     cv::VideoCapture cap(2); // 打开摄像头
 
@@ -36,10 +43,14 @@ int main() {
     }
 
     CircleDetector detector;
+    ColorMaskProcessor maskProcessor;
+
+    // 设置摄像头的曝光
+    cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 1);  // 设置自动曝光
 
     // 设置摄像头的分辨率
-    cap.set(cv::CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);  // 设置宽度为640像素
-    cap.set(cv::CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT);  // 设置高度为480像素
+    cap.set(cv::CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);  // 设置宽度像素
+    cap.set(cv::CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT);  // 设置高度像素
 
     // 获取摄像头分辨率
     int frame_width = (int)cap.get(cv::CAP_PROP_FRAME_WIDTH);
@@ -66,17 +77,25 @@ int main() {
             break;
         }
 
+        // 高斯模糊
+        cv::GaussianBlur(frame, frame, cv::Size(5, 5), 0);
+        
         // 提取颜色掩码
-        cv::Mat redMask = extractColorMask(frame, cv::Scalar(0, 120, 70), cv::Scalar(10, 255, 255));
-        cv::Mat blueMask = extractColorMask(frame, cv::Scalar(100, 150, 0), cv::Scalar(140, 255, 255));
-        cv::Mat blackMask = extractColorMask(frame, cv::Scalar(0, 0, 0), cv::Scalar(180, 255, 50));
+        cv::Mat redMask1 =
+            maskProcessor.extractColorMask(frame, LOWER_RED1, UPPER_RED1);
+        cv::Mat redMask2 =
+            maskProcessor.extractColorMask(frame, LOWER_RED2, UPPER_RED2);
+        cv::Mat redMask = redMask1 | redMask2;
+        cv::Mat blueMask = maskProcessor.extractColorMask(frame, LOWER_BLUE, UPPER_BLUE);
+        cv::Mat blackMask = maskProcessor.extractColorMask(frame, LOWER_BLACK, UPPER_BLACK);
 
-        // 膨胀和腐蚀去除噪声
-        cv::morphologyEx(redMask, redMask, cv::MORPH_CLOSE, cv::Mat(), cv::Point(-1, -1), 3);
-        cv::morphologyEx(blueMask, blueMask, cv::MORPH_CLOSE, cv::Mat(), cv::Point(-1, -1), 3);
-        cv::morphologyEx(blackMask, blackMask, cv::MORPH_CLOSE, cv::Mat(),
-                         cv::Point(-1, -1), 3);
-
+        // 通过轮廓面积筛选掩码
+        redMask = maskProcessor.filterContoursByArea(redMask, MIN_CONTOUR_AREA);
+        blueMask =
+            maskProcessor.filterContoursByArea(blueMask, MIN_CONTOUR_AREA);
+        blackMask =
+            maskProcessor.filterContoursByArea(blackMask, MIN_CONTOUR_AREA);
+        
         // 显示掩码
         cv::imshow("Red Mask", redMask);
         cv::imshow("Blue Mask", blueMask);
@@ -107,7 +126,7 @@ int main() {
         cv::putText(frame, fpsText.str(), cv::Point(frame.cols - 150, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0), 2, cv::LINE_AA);
         
         // 显示结果
-        cv::imshow("Ping Pong Detection", frame);
+        cv::imshow("Detection", frame);
 
         // 按下ESC退出
         if (cv::waitKey(30) == 27) {

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libColorMaskProcessor.a  CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.o
+/usr/bin/ranlib libColorMaskProcessor.a

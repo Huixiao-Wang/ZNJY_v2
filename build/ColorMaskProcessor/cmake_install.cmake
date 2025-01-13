@@ -1,4 +1,4 @@
-# Install script for directory: /home/patience/Doc/Code/ZNJY_v2/CircleDetection
+# Install script for directory: /home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,19 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/patience/Doc/Code/ZNJY_v2/main.cpp" "/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/src/ColorMaskProcessor.cpp" "/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../ColorMaskProcessor/include"
   "/usr/include/opencv4"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/CircleDetection.dir/DependInfo.cmake"
-  "/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

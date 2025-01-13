@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles /home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor/CMakeFiles/progress.marks
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,84 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named main
+# Convenience name for target.
+ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule
+.PHONY : ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule
 
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
+# Convenience name for target.
+ColorMaskProcessor: ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/rule
 
-# fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
-# Target rules for targets named CircleDetection
-
-# Build rule for target.
-CircleDetection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CircleDetection
-.PHONY : CircleDetection
-
-# fast build rule for target.
-CircleDetection/fast:
-	$(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/build
-.PHONY : CircleDetection/fast
-
-#=============================================================================
-# Target rules for targets named ColorMaskProcessor
-
-# Build rule for target.
-ColorMaskProcessor: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ColorMaskProcessor
 .PHONY : ColorMaskProcessor
 
 # fast build rule for target.
 ColorMaskProcessor/fast:
-	$(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build
 .PHONY : ColorMaskProcessor/fast
 
-main.o: main.cpp.o
+src/ColorMaskProcessor.o: src/ColorMaskProcessor.cpp.o
 
-.PHONY : main.o
+.PHONY : src/ColorMaskProcessor.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/ColorMaskProcessor.cpp.o:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.o
+.PHONY : src/ColorMaskProcessor.cpp.o
 
-main.i: main.cpp.i
+src/ColorMaskProcessor.i: src/ColorMaskProcessor.cpp.i
 
-.PHONY : main.i
+.PHONY : src/ColorMaskProcessor.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/ColorMaskProcessor.cpp.i:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.i
+.PHONY : src/ColorMaskProcessor.cpp.i
 
-main.s: main.cpp.s
+src/ColorMaskProcessor.s: src/ColorMaskProcessor.cpp.s
 
-.PHONY : main.s
+.PHONY : src/ColorMaskProcessor.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/ColorMaskProcessor.cpp.s:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/build.make ColorMaskProcessor/CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.s
+.PHONY : src/ColorMaskProcessor.cpp.s
 
 # Help Target
 help:
@@ -184,12 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... main"
-	@echo "... CircleDetection"
 	@echo "... ColorMaskProcessor"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/ColorMaskProcessor.o"
+	@echo "... src/ColorMaskProcessor.i"
+	@echo "... src/ColorMaskProcessor.s"
 .PHONY : help
 
 
@@ -201,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
