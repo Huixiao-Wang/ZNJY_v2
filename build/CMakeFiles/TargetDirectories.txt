@@ -1,0 +1,6 @@
+/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles/rebuild_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles/edit_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles/main.dir
+/home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/rebuild_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/edit_cache.dir
+/home/patience/Doc/Code/ZNJY_v2/build/CircleDetection/CMakeFiles/CircleDetection.dir
