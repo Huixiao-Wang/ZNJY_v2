@@ -9,7 +9,7 @@
 #define FRAME_WIDTH 640
 #define FRAME_HEIGHT 480
 #define MIN_CONTOUR_AREA 100
-#define THRESHOLDRATIO 0.5
+#define THRESHOLDRATIO 0.6
 
 // 定义你想要检测的颜色范围 (HSV)
 cv::Scalar LOWER_RED1 = cv::Scalar(0, 120, 70);    // 红色低阈值
@@ -55,7 +55,7 @@ int main()
     CircleFilter filter;
 
     // 设置摄像头的曝光
-    cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25); // 设置自动曝光
+    cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 1); // 设置自动曝光
 
     // 设置摄像头的分辨率
     cap.set(cv::CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);   // 设置宽度像素

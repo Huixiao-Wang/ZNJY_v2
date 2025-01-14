@@ -18,8 +18,6 @@ std::vector<cv::Vec3f> CircleFilter::filterByBinaryCount(const cv::Mat& inputIma
     cv::Mat binaryImage;
     cv::inRange(hsvImage, Lower, Upper, binaryImage); // 根据颜色范围进行二值化
 
-    cv::imshow("bi", binaryImage);
-
     std::vector<cv::Vec3f> filteredCircles;
     for (const auto& circle : circles)
     {
@@ -27,10 +25,6 @@ std::vector<cv::Vec3f> CircleFilter::filterByBinaryCount(const cv::Mat& inputIma
         int radius = circle[2];
         cv::Mat mask = cv::Mat::zeros(binaryImage.size(), CV_8UC1);
         cv::circle(mask, center, radius, cv::Scalar(255), -1);
-
-        // 显示
-        // cv::imshow("mask", mask);
-        // cv::imshow("binaryImage & mask", binaryImage & mask);
 
         int totalPixels = cv::countNonZero(mask);
         int circlePixels = cv::countNonZero(binaryImage & mask);
