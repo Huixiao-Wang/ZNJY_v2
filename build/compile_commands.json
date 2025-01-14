@@ -10,6 +10,11 @@
   "file": "/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleDetector.cpp"
 },
 {
+  "directory": "/home/patience/Doc/Code/ZNJY_v2/build/CircleDetection",
+  "command": "/usr/bin/c++   -I/home/patience/Doc/Code/ZNJY_v2/CircleDetection/include -isystem /usr/local/include/opencv4  -g   -std=gnu++17 -o CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o -c /home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp",
+  "file": "/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp"
+},
+{
   "directory": "/home/patience/Doc/Code/ZNJY_v2/build/ColorMaskProcessor",
   "command": "/usr/bin/c++   -I/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/include -isystem /usr/local/include/opencv4  -g   -std=gnu++17 -o CMakeFiles/ColorMaskProcessor.dir/src/ColorMaskProcessor.cpp.o -c /home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/src/ColorMaskProcessor.cpp",
   "file": "/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/src/ColorMaskProcessor.cpp"

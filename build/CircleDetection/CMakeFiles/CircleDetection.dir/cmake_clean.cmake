@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o"
+  "CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o"
   "libCircleDetection.a"
   "libCircleDetection.pdb"
 )

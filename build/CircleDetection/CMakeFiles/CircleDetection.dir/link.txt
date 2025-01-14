@@ -1,2 +1,2 @@
-/usr/bin/ar qc libCircleDetection.a  CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o
+/usr/bin/ar qc libCircleDetection.a  CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o
 /usr/bin/ranlib libCircleDetection.a

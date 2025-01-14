@@ -152,6 +152,33 @@ src/CircleDetector.cpp.s:
 	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.s
 .PHONY : src/CircleDetector.cpp.s
 
+src/CircleFilter.o: src/CircleFilter.cpp.o
+
+.PHONY : src/CircleFilter.o
+
+# target to build an object file
+src/CircleFilter.cpp.o:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o
+.PHONY : src/CircleFilter.cpp.o
+
+src/CircleFilter.i: src/CircleFilter.cpp.i
+
+.PHONY : src/CircleFilter.i
+
+# target to preprocess a source file
+src/CircleFilter.cpp.i:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.i
+.PHONY : src/CircleFilter.cpp.i
+
+src/CircleFilter.s: src/CircleFilter.cpp.s
+
+.PHONY : src/CircleFilter.s
+
+# target to generate assembly for a file
+src/CircleFilter.cpp.s:
+	cd /home/patience/Doc/Code/ZNJY_v2/build && $(MAKE) -f CircleDetection/CMakeFiles/CircleDetection.dir/build.make CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.s
+.PHONY : src/CircleFilter.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -164,6 +191,9 @@ help:
 	@echo "... src/CircleDetector.o"
 	@echo "... src/CircleDetector.i"
 	@echo "... src/CircleDetector.s"
+	@echo "... src/CircleFilter.o"
+	@echo "... src/CircleFilter.i"
+	@echo "... src/CircleFilter.s"
 .PHONY : help
 
 

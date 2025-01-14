@@ -15,7 +15,7 @@ std::vector<cv::Vec3f> CircleDetector::detectCircles(const cv::Mat& inputImage)
 
     // 显示预处理图像
     // cv::imshow("Preprocessed Image", preprocessedImage);
-    cv::imshow("Preprocessed Image ALT", preprocessedImage_ALT);
+    // cv::imshow("Preprocessed Image ALT", preprocessedImage_ALT);
 
     // 存储检测到的圆
     std::vector<cv::Vec3f> circles, circles_alt;

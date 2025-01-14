@@ -6,20 +6,18 @@
 
 #IncludeRegexTransform: 
 
-../CircleDetection/include/CircleDetector.hpp
+../CircleDetection/include/CircleFilter.hpp
 opencv2/opencv.hpp
+-
+opencv4/opencv2/core/types.hpp
 -
 vector
 -
 
-/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleDetector.cpp
-CircleDetector.hpp
-/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleDetector.hpp
-opencv2/core/types.hpp
--
-opencv2/highgui.hpp
--
-opencv2/opencv.hpp
+/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp
+CircleFilter.hpp
+/home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.hpp
+opencv4/opencv2/core/types.hpp
 -
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp

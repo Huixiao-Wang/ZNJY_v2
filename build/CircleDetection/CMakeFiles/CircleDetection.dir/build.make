@@ -70,17 +70,32 @@ CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.s: cmake_f
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.s"
 	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleDetector.cpp -o CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.s
 
+CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o: CircleDetection/CMakeFiles/CircleDetection.dir/flags.make
+CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o: ../CircleDetection/src/CircleFilter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o"
+	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o -c /home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp
+
+CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.i"
+	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp > CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.i
+
+CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.s"
+	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/patience/Doc/Code/ZNJY_v2/CircleDetection/src/CircleFilter.cpp -o CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.s
+
 # Object files for target CircleDetection
 CircleDetection_OBJECTS = \
-"CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o"
+"CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o" \
+"CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o"
 
 # External object files for target CircleDetection
 CircleDetection_EXTERNAL_OBJECTS =
 
 CircleDetection/libCircleDetection.a: CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleDetector.cpp.o
+CircleDetection/libCircleDetection.a: CircleDetection/CMakeFiles/CircleDetection.dir/src/CircleFilter.cpp.o
 CircleDetection/libCircleDetection.a: CircleDetection/CMakeFiles/CircleDetection.dir/build.make
 CircleDetection/libCircleDetection.a: CircleDetection/CMakeFiles/CircleDetection.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libCircleDetection.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/patience/Doc/Code/ZNJY_v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libCircleDetection.a"
 	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && $(CMAKE_COMMAND) -P CMakeFiles/CircleDetection.dir/cmake_clean_target.cmake
 	cd /home/patience/Doc/Code/ZNJY_v2/build/CircleDetection && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CircleDetection.dir/link.txt --verbose=$(VERBOSE)
 
