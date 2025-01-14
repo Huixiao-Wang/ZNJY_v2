@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
+
 #include "CircleDetection/include/CircleDetector.hpp"
 #include "ColorMaskProcessor/include/ColorMaskProcessor.hpp"
 
@@ -9,18 +10,20 @@
 
 // 定义你想要检测的颜色范围 (HSV)
 cv::Scalar LOWER_RED1 = cv::Scalar(0, 120, 70);    // 红色低阈值
-cv::Scalar UPPER_RED1 = cv::Scalar(10, 255, 255);   // 红色高阈值
-cv::Scalar LOWER_RED2 = cv::Scalar(170, 120, 70);   // 红色低阈值（第二段）
-cv::Scalar UPPER_RED2 = cv::Scalar(180, 255, 255);  // 红色高阈值（第二段）
+cv::Scalar UPPER_RED1 = cv::Scalar(10, 255, 255);  // 红色高阈值
+cv::Scalar LOWER_RED2 = cv::Scalar(170, 120, 70);  // 红色低阈值（第二段）
+cv::Scalar UPPER_RED2 = cv::Scalar(180, 255, 255); // 红色高阈值（第二段）
 
-cv::Scalar LOWER_BLUE = cv::Scalar(100, 50, 50);    // 蓝色低阈值
-cv::Scalar UPPER_BLUE = cv::Scalar(140, 255, 255);  // 蓝色高阈值
+cv::Scalar LOWER_BLUE = cv::Scalar(100, 50, 50);   // 蓝色低阈值
+cv::Scalar UPPER_BLUE = cv::Scalar(140, 255, 255); // 蓝色高阈值
 
-cv::Scalar LOWER_BLACK = cv::Scalar(0, 0, 0); // 黑色低阈值
-cv::Scalar UPPER_BLACK = cv::Scalar(180, 255, 50); // 黑色高阈值
+cv::Scalar LOWER_BLACK = cv::Scalar(0, 0, 0);      // 黑色低阈值
+cv::Scalar UPPER_BLACK = cv::Scalar(150, 200, 20); // 黑色高阈值
 
-void drawCircles(cv::Mat& image, const std::vector<cv::Vec3f>& circles, const cv::Scalar& color) {
-    for (const auto& circle : circles) {
+void drawCircles(cv::Mat& image, const std::vector<cv::Vec3f>& circles, const cv::Scalar& color)
+{
+    for (const auto& circle : circles)
+    {
         cv::Point center(cvRound(circle[0]), cvRound(circle[1]));
         int radius = cvRound(circle[2]);
         double area = CV_PI * radius * radius;
@@ -30,15 +33,16 @@ void drawCircles(cv::Mat& image, const std::vector<cv::Vec3f>& circles, const cv
 
         // 标注圆的面积
         std::string text = "Area: " + std::to_string(static_cast<int>(area));
-        cv::putText(image, text, center + cv::Point(-radius, -radius - 10),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(255, 255, 255), 1);
+        cv::putText(image, text, center + cv::Point(-radius, -radius - 10), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(255, 255, 255), 1);
     }
 }
 
-int main() {
+int main()
+{
     cv::VideoCapture cap(2); // 打开摄像头
 
-    if (!cap.isOpened()) {
+    if (!cap.isOpened())
+    {
         std::cerr << "Error: Unable to open the camera" << std::endl;
         return -1;
     }
@@ -47,101 +51,62 @@ int main() {
     ColorMaskProcessor maskProcessor;
 
     // 设置摄像头的曝光
-    cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 1);  // 设置自动曝光
+    cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 1); // 设置自动曝光
 
     // 设置摄像头的分辨率
-    cap.set(cv::CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);  // 设置宽度像素
-    cap.set(cv::CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT);  // 设置高度像素
+    cap.set(cv::CAP_PROP_FRAME_WIDTH, FRAME_WIDTH);   // 设置宽度像素
+    cap.set(cv::CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT); // 设置高度像素
 
     // 获取摄像头分辨率
-    int frame_width = (int)cap.get(cv::CAP_PROP_FRAME_WIDTH);
-    int frame_height = (int)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
+    int frame_width = (int) cap.get(cv::CAP_PROP_FRAME_WIDTH);
+    int frame_height = (int) cap.get(cv::CAP_PROP_FRAME_HEIGHT);
 
-    // cout << "Frame width: " << frame_width << ", Frame height: " << frame_height << endl;
+    // cout << "Frame width: " << frame_width << ", Frame height: " <<
+    // frame_height << endl;
 
     // 创建视频写入对象，用于保存输出视频
-    cv::VideoWriter writer("output_video_with_fps.avi",
-                           cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
-                           cv::Size(frame_width, frame_height));
+    cv::VideoWriter writer("output_video_with_fps.avi", cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30, cv::Size(frame_width, frame_height));
 
     // 计算帧率
     int frameCount = 0;
-    double tickFrequency = cv::getTickFrequency();  // 获取计时频率
-    double startTime = cv::getTickCount();  // 获取当前时间（开始时间）
-    
-    while (true) {
+    double tickFrequency = cv::getTickFrequency(); // 获取计时频率
+    double startTime = cv::getTickCount();         // 获取当前时间（开始时间）
+
+    while (true)
+    {
         cv::Mat frame;
         cap >> frame; // 捕获帧
 
-        if (frame.empty()) {
+        if (frame.empty())
+        {
             std::cerr << "Error: Empty frame captured" << std::endl;
             break;
         }
 
-        // 高斯模糊
-        cv::GaussianBlur(frame, frame, cv::Size(5, 5), 0);
-        
-        // 提取颜色掩码
-        cv::Mat redMask1 =
-            maskProcessor.extractColorMask(frame, LOWER_RED1, UPPER_RED1);
-        cv::Mat redMask2 =
-            maskProcessor.extractColorMask(frame, LOWER_RED2, UPPER_RED2);
-        cv::Mat redMask = redMask1 | redMask2;
-        cv::Mat blueMask = maskProcessor.extractColorMask(frame, LOWER_BLUE, UPPER_BLUE);
-        cv::Mat blackMask = maskProcessor.extractColorMask(frame, LOWER_BLACK, UPPER_BLACK);
+        // 霍夫圆检测
+        std::vector<cv::Vec3f> circles;
+        circles = detector.detectCircles(frame);
 
-        // 通过轮廓面积筛选掩码
-        redMask = maskProcessor.filterContoursByArea(redMask, MIN_CONTOUR_AREA);
-        blueMask =
-            maskProcessor.filterContoursByArea(blueMask, MIN_CONTOUR_AREA);
-        blackMask =
-            maskProcessor.filterContoursByArea(blackMask, MIN_CONTOUR_AREA);
-        
-        // 显示掩码
-        cv::imshow("Red Mask", redMask);
-        cv::imshow("Blue Mask", blueMask);
-        cv::imshow("Black Mask", blackMask);
-
-        // 检测红色圆
-        std::vector<cv::Vec3f> redCircles = detector.detectCircles(frame, redMask);
-        drawCircles(frame, redCircles, cv::Scalar(0, 0, 255));
-
-        // 检测蓝色圆
-        std::vector<cv::Vec3f> blueCircles = detector.detectCircles(frame, blueMask);
-        drawCircles(frame, blueCircles, cv::Scalar(255, 0, 0));
-
-        // 检测黑色圆
-        std::vector<cv::Vec3f> blackCircles = detector.detectCircles(frame, blackMask);
-        drawCircles(frame, blackCircles, cv::Scalar(0, 0, 0));
-
-        /* // 直接检测圆
-        cv::Mat gray;
-        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
-
-        std::vector<cv::Vec3f> allCircles;
-        cv::HoughCircles(gray, allCircles, cv::HOUGH_GRADIENT, 1,
-                         gray.rows / 8, // 圆心之间的最小距离
-                         100, 30,       // canny edge和accumulator阈值
-                         10, 80);       // 圆半径范围
-        drawCircles(frame, allCircles, cv::Scalar(0, 255, 0)); */
+        // 绘制检测到的圆
+        drawCircles(frame, circles, cv::Scalar(0, 255, 0));
 
         // 计算帧率
         frameCount++;
         double currentTime = cv::getTickCount();
-        double elapsedTime =
-            (currentTime - startTime) / tickFrequency; // 计算经过的时间（秒）
-        double fps = frameCount / elapsedTime;  // 计算帧率
+        double elapsedTime = (currentTime - startTime) / tickFrequency; // 计算经过的时间（秒）
+        double fps = frameCount / elapsedTime;                          // 计算帧率
 
         // 显示帧率等信息
         std::stringstream fpsText;
         fpsText << "FPS: " << int(fps);
         cv::putText(frame, fpsText.str(), cv::Point(frame.cols - 150, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0), 2, cv::LINE_AA);
-        
+
         // 显示结果
         cv::imshow("Detection", frame);
 
         // 按下ESC退出
-        if (cv::waitKey(30) == 27) {
+        if (cv::waitKey(30) == 27)
+        {
             break;
         }
     }

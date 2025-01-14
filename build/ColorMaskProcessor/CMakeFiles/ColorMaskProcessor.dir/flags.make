@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/include -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/include -isystem /usr/local/include/opencv4 
 

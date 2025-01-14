@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "CircleDetection/libCircleDetection.a"
+			"path" : "ColorMaskProcessor/libColorMaskProcessor.a"
 		}
 	],
 	"backtrace" : 1,
@@ -16,7 +16,7 @@
 		],
 		"files" : 
 		[
-			"CircleDetection/CMakeLists.txt"
+			"ColorMaskProcessor/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -26,13 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 11,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 10,
 				"parent" : 0
 			}
 		]
@@ -53,12 +53,12 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/home/patience/Doc/Code/ZNJY_v2/CircleDetection/include"
+					"path" : "/home/patience/Doc/Code/ZNJY_v2/ColorMaskProcessor/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "/usr/include/opencv4"
+					"path" : "/usr/local/include/opencv4"
 				}
 			],
 			"language" : "CXX",
@@ -68,13 +68,13 @@
 			]
 		}
 	],
-	"id" : "CircleDetection::@b122fef24e138de9390d",
-	"name" : "CircleDetection",
-	"nameOnDisk" : "libCircleDetection.a",
+	"id" : "ColorMaskProcessor::@d376d37ea28b8ef4ad4c",
+	"name" : "ColorMaskProcessor",
+	"nameOnDisk" : "libColorMaskProcessor.a",
 	"paths" : 
 	{
-		"build" : "CircleDetection",
-		"source" : "CircleDetection"
+		"build" : "ColorMaskProcessor",
+		"source" : "ColorMaskProcessor"
 	},
 	"sourceGroups" : 
 	[
@@ -91,7 +91,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "CircleDetection/src/CircleDetector.cpp",
+			"path" : "ColorMaskProcessor/src/ColorMaskProcessor.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
